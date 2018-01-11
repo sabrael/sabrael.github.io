@@ -23,11 +23,6 @@ function onJsonLoad(data) {
 	const names = raceData.map(x => x.name).sort();
 	const options = names.map(name => `<option>${name}</option>`).join();
 	$("#race").append(options).change(changeRace).change();
-
-	if (window.location.hash)
-		window.onhashchange();
-	else
-		window.location.hash = "#rolled";
 }
 
 window.onhashchange = function hashchange() {
@@ -98,16 +93,4 @@ function changeBase(e) {
 	$("#remaining").val(budget - cost);
 
 	changeTotal()
-}
-
-function rollstats() {
-	var rolls = [];
-	for (var i = 0; i < 6; i++) {
-		var curroll = droll.roll("4d6").rolls.sort().splice(1);
-		curroll = curroll[0] + curroll[1] + curroll[2];
-		rolls.push(curroll);
-	}
-
-	$("#rolled #rolls").prepend("<p>"+rolls.join(", ")+"</p>");
-	$("#rolled #rolls p:eq(10)").remove();
 }

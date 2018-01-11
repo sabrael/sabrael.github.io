@@ -16,7 +16,6 @@ window.onload = function load() {
 function onJsonLoad(data) {
 	raceData = data.race;
 
-	$("#rollbutton").click(rollstats);
 	$(".base").on("input", changeBase);
 	$("input.choose").on("change", choose);
 

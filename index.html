@@ -14,10 +14,11 @@
 	I don't own any of the XML data anyway.
 -->
 
-	<title>Statgen - Dawn of Change</title>
+	<title>Statgen - 5etools</title>
 
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="icon" href="favicon.png">
 
 	<script type="text/javascript" src="lib/js-cookie.js"></script>
 	<style id="dynamicStyle"></style> <!-- populated with JS -->
@@ -27,12 +28,84 @@
 <body>
 	<header class="hidden-xs hidden-sm">
 		<div class="container">
-			<h1>Statgen - Dawn of Change</h1>
+			<h1>Statgen</h1>
+			<p>Change method on the left, refer to method that appears on the right.</p>
 		</div>
 	</header>
+	<nav class="container">
+		<ul class="nav nav-pills ">
+			<li role="presentation"><a href="5etools.html">5eTools</a></li>
+			<li role="presentation"><a href="rules.html">Rules</a></li>
+			<li role="presentation" class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Player Options <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li role="presentation"><a href="classes.html">Classes</a></li>
+					<li role="presentation"><a href="backgrounds.html">Backgrounds</a></li>
+					<li role="presentation"><a href="feats.html">Feats</a></li>
+					<li role="presentation"><a href="races.html">Races</a></li>
+				</ul>
+			</li>
+			<li role="presentation" class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">DM Tools <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li role="presentation"><a href="crcalculator.html">CR Calculator</a></li>
+					<li role="presentation"><a href="http://kobold.club" target="_blank" title="I could literally never build something better than Kobold Fight Club">Encounter Builder</a></li>
+					<li role="presentation"><a href="encountergen.html">Encounter Generator</a></li>
+					<li role="presentation"><a href="lootgen.html">Loot Generator</a></li>
+				</ul>
+			</li>
+			<li role="presentation" class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">References <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li role="presentation"><a href="bestiary.html">Bestiary</a></li>
+					<li role="presentation"><a href="conditions.html">Conditions</a></li>
+					<li role="presentation"><a href="cults.html">Cults</a></li>
+					<li role="presentation"><a href="items.html">Items</a></li>
+					<li role="presentation"><a href="rewards.html">Other Rewards</a></li>
+					<li role="presentation"><a href="psionics.html">Psionics</a></li>
+					<li role="presentation"><a href="spells.html">Spells</a></li>
+					<li role="presentation"><a href="variantrules.html">Variant Rules</a></li>
+				</ul>
+			</li>
+			<li role="presentation" class="active"><a href="statgen.html">Statgen</a></li>
+			<li role="presentation" class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Utilities<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li role="presentation"><a href="converter.html">Stat Block to JSON</a></li>
+					<li role="presentation"><a href="editor.html">WYSIWYG Editor</a></li>
+				</ul>
+			</li>
+			<li role="presentation">
+				<a class="nightModeToggle" href="#" onclick="styleSwitcher.toggleActiveStyleSheet(); return false;"><script>document.write(styleSwitcher.getActiveStyleSheet() === StyleSwitcher.STYLE_DAY ? "Night Mode" : "Day Mode")</script></a>
+			</li>
+		</ul>
+	</nav>
 	<main class="container bodyContent">
+
 		<div class="row">
-			<div class="col-sm-12 statmethod" id="pointbuy">
+			<div class="col-sm-3">
+				<nav>
+					<ul class="nav" id="rolltabs">
+						<li role="presentation"><a href="#rolled">Rolling</a></li>
+						<li role="presentation"><a href="#array">Array</a></li>
+						<li role="presentation"><a href="#pointbuy">Point Buy</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="col-sm-9 statmethod" id="rolled">
+				<h3>Rolled Stats</h3>
+				<button type="button" id="rollbutton" class="btn btn-default">Roll Stats</button>
+				<h3 id="rolls">
+				</h3>
+				<p>Click the button to roll for your stats. 4d6 are rolled with the lowest of the set discarded. This is done for each ability score. Assign these numbers to your abilities as desired. As this is based on your browser's JavaScript random number generator,
+					it cannot be considered at all "truly" random, but for most purposes can be considered "random enough."</p>
+			</div>
+			<div class="col-sm-9 statmethod" id="array">
+				<h3>Standard Array</h3>
+				<h4>15, 14, 13, 12, 10, 8</h4>
+				<p>Assign these numbers to your abilities as desired.</p>
+			</div>
+			<div class="col-sm-9 statmethod" id="pointbuy">
 				<h3>Point Buy</h3>
 				<label>Budget: <input id="budget" type="number" min="10" value="27"></label>
 				<label>Remaining: <input id="remaining" type="number" min="10" value="27" readonly></label>

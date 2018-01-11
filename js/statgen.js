@@ -35,7 +35,13 @@ function getCost(n) {
 		return n - 8;
 	if (n === 14)
 		return 7;
-	return 9
+	if (n === 15)
+		return 9;
+	if (n === 16)
+		return 12;
+	if (n === 17)
+		return 15;
+	return 19
 }
 
 function choose() {

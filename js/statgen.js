@@ -86,8 +86,12 @@ function changeTotal() {
 
 function changeBase(e) {
 	const budget = Number($("#budget").val());
+	
+	$(".base").each((i, el) =>
+		el.value = el.value < 18 ? el.value : 18);
 
 	let cost = 0;
+		
 	$(".base").each((i, el) =>
 		cost += getCost(Number(el.value)));
 

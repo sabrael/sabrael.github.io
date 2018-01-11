@@ -41,13 +41,7 @@ function getCost(n) {
 		return n - 8;
 	if (n === 14)
 		return 7;
-	if (n === 15)
-		return 9;
-	if (n === 16)
-		return 12;
-	if (n === 17)
-		return 15;
-	return 19;
+	return 9
 }
 
 function choose() {
@@ -104,4 +98,16 @@ function changeBase(e) {
 	$("#remaining").val(budget - cost);
 
 	changeTotal()
+}
+
+function rollstats() {
+	var rolls = [];
+	for (var i = 0; i < 6; i++) {
+		var curroll = droll.roll("4d6").rolls.sort().splice(1);
+		curroll = curroll[0] + curroll[1] + curroll[2];
+		rolls.push(curroll);
+	}
+
+	$("#rolled #rolls").prepend("<p>"+rolls.join(", ")+"</p>");
+	$("#rolled #rolls p:eq(10)").remove();
 }
